@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5 bg-light ">
+            <div class="card-header">
+                <h5 class="card-title text-center">Login</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            class="form-control rounded-pill"
+                            id="username"
+                            name="username"
+                            aria-describedby="usernameHelp"
+                            placeholder="username *"
+                            autoFocus
+                            formControlName="username"
+                            required
+                        />
+                    </div>
+                    <div *ngIf="formAlias.username.errors && formAlias.username.touched">
+                        <p class="text text-danger" *ngIf="formAlias.username.errors.required">Username is required</p>
+                    </div>
+
+                    <div class="form-group">
+                        <input
+                            type="password"
+                            class="form-control rounded-pill"
+                            id="password"
+                            name="password"
+                            placeholder="Password *"
+                            formControlName="password"
+                            required
+                            minlength="4"
+                        />
+                    </div>
+                    <div *ngIf="formAlias.password.errors && formAlias.password.touched">
+                        <p class="text text-danger" *ngIf="formAlias.password.errors.required">Password is required</p>
+                        <p class="text text-danger" *ngIf="formAlias.password.errors.minlength">Password must be at least 4 characters long.</p>
+                    </div>
+                    
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-lg btn-block rounded-pill"
+                        [disabled]="submitted"
+                    >
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
