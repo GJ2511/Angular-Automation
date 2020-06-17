@@ -13,10 +13,9 @@
                             id="username"
                             name="username"
                             aria-describedby="usernameHelp"
-                            placeholder="username *"
+                            placeholder="username"
                             autoFocus
                             formControlName="username"
-                            required
                         />
                     </div>
                     <div *ngIf="formAlias.username.errors && formAlias.username.touched">
@@ -29,10 +28,8 @@
                             class="form-control rounded-pill"
                             id="password"
                             name="password"
-                            placeholder="Password *"
+                            placeholder="Password"
                             formControlName="password"
-                            required
-                            minlength="4"
                         />
                     </div>
                     <div *ngIf="formAlias.password.errors && formAlias.password.touched">
