@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   submitted: boolean = false;
   loginForm: FormGroup;
   returnUrl: string;
+  count = 0
 
   constructor(
         private _fb: FormBuilder, 
@@ -34,6 +35,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    this.count++;
+    console.warn("w", this.count)
+    
+    console.warn(this.loginForm.invalid, this.formAlias)
     this.submitted = true;
 
     if (this.loginForm.invalid) {

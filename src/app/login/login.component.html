@@ -5,7 +5,7 @@
                 <h5 class="card-title text-center">Login</h5>
             </div>
             <div class="card-body">
-                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="loginForm">
                     <div class="form-group">
                         <input
                             type="email"
@@ -18,8 +18,8 @@
                             formControlName="username"
                         />
                     </div>
-                    <div *ngIf="formAlias.username.errors && formAlias.username.touched">
-                        <p class="text text-danger" *ngIf="formAlias.username.errors.required">Username is required</p>
+                    <div id="username_error" *ngIf="formAlias.username.errors && formAlias.username.touched">
+                        <p class="text text-danger" id="username_error_required" *ngIf="formAlias.username.errors.required">Username is required</p>
                     </div>
 
                     <div class="form-group">
@@ -32,13 +32,14 @@
                             formControlName="password"
                         />
                     </div>
-                    <div *ngIf="formAlias.password.errors && formAlias.password.touched">
-                        <p class="text text-danger" *ngIf="formAlias.password.errors.required">Password is required</p>
-                        <p class="text text-danger" *ngIf="formAlias.password.errors.minlength">Password must be at least 4 characters long.</p>
+                    <div id="password_error" *ngIf="formAlias.password.errors && formAlias.password.touched">
+                        <p id="password_error_required" class="text text-danger" *ngIf="formAlias.password.errors.required">Password is required</p>
+                        <p id="password_error_minlength"  class="text text-danger" *ngIf="formAlias.password.errors.minlength">Password must be at least 4 characters long.</p>
                     </div>
                     
                     <button
                         type="submit"
+                        id="submit"
                         class="btn btn-primary btn-lg btn-block rounded-pill"
                         [disabled]="submitted"
                     >
