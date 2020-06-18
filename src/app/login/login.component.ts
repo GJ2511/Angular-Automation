@@ -35,10 +35,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.count++;
-    console.warn("w", this.count)
-    
-    console.warn(this.loginForm.invalid, this.formAlias)
     this.submitted = true;
 
     if (this.loginForm.invalid) {
